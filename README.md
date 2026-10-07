@@ -28,15 +28,14 @@ This repository contains an end-to-end computer vision project focused on road s
 1. [Project Overview](#-project-overview)
 2. [Problem Statement](#-problem-statement)
 3. [Dataset](#-dataset)
-4. 
-5. [Image Preprocessing Pipeline](#-image-preprocessing-pipeline)
-6. [Feature Extraction & Model Implementation](#-feature-extraction--model-implementation)
-7. [Experiments & Results](#-experiments--results)
-8. [Error Analysis](#-error-analysis)
-9. [Practical Impact](#-practical-impact)
-10. [Installation & Usage](#-installation--usage)
-11. [Repository Structure](#-repository-structure)
-12. [Future Improvements](#-future-improvements)
+4. [Image Preprocessing Pipeline](#-image-preprocessing-pipeline)
+5. [Feature Extraction & Model Implementation](#-feature-extraction--model-implementation)
+6. [Experiments & Results](#-experiments--results)
+7. [Error Analysis](#-error-analysis)
+8. [Practical Impact](#-practical-impact)
+9. [Installation & Usage](#-installation--usage)
+10. [Repository Structure](#-repository-structure)
+11. [Future Improvements](#-future-improvements)
 
 ---
 
