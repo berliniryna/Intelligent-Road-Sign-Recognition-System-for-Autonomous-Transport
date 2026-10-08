@@ -23,19 +23,19 @@ This repository contains an end-to-end computer vision project focused on road s
 ![Tkinter](https://img.shields.io/badge/Tkinter-GUI-blue)
 ![Dataset](https://img.shields.io/badge/Dataset-GTSRB-green)
 
-## 📌 Table of Contents
+## Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Problem Statement](#-problem-statement)
-3. [Dataset](#-dataset)
-4. [Image Preprocessing Pipeline](#-image-preprocessing-pipeline)
-5. [Feature Extraction & Model Implementation](#-feature-extraction--model-implementation)
-6. [Experiments & Results](#-experiments--results)
-7. [Error Analysis](#-error-analysis)
-8. [Practical Impact](#-practical-impact)
-9. [Installation & Usage](#-installation--usage)
-10. [Repository Structure](#-repository-structure)
-11. [Future Improvements](#-future-improvements)
+1. Project Overview
+2. Problem Statement
+3. Dataset
+4. Image Preprocessing Pipeline
+5. Feature Extraction & Model Implementation
+6. Experiments & Results
+7. Error Analysis
+8. Practical Impact
+9. Installation & Usage
+10. Repository Structure
+11. Future Improvements
 
 ---
 
@@ -68,7 +68,7 @@ This project addresses **binary (one-vs-rest) recognition** of one target sign a
 
 **Target class:** the **'STOP'** sign (GTSRB class `00014`), chosen because of its characteristic octagonal shape.
 
-## 📂 Dataset
+## Dataset
 
 **Source**: the **GTSRB** (German Traffic Sign Recognition Benchmark) dataset. Subsets were assembled manually from it:
 
@@ -163,10 +163,19 @@ Both models were tested in three stages with a progressively harder negative cla
 | 2 | Diamonds, class `00012` (2,100) | 69.91% / 74.36% | 65.05% / 70.90% | 82.97% / 86.09% | 72.85% / 76.00% |
 | 3 | All other signs (12,361) | 66.49% / 67.52% | 63.89% / 66.44% | 79.24% / 83.47% | 70.69% / 71.43% |
 
-Additional observations:
+#### Example of the confusion matrix and metrics for the `triangle` subset:
+<img src="images/svm_metrics.png" width="500" alt="CNN metrics">
+
+####  Additional observations:
 - False positives grew from **30–37** (stage 1) to **39–58** (stage 2) and **49–63** (stage 3).
 - Over the three stages, average Accuracy dropped by about **10 pp** (76.92% → 66.49%), Precision by about **10 pp** (74.19% → 63.89%) and F1 by about **8 pp** (78.75% → 70.69%).
 - **Recall stayed stable** (79–84% on average), so the errors lean toward over-triggering on similar shapes rather than missing real STOP signs.
+
+#### Example of the table of the identification results:
+<img src="images/svm_table_01.png" width="500" alt="SVM results">
+<img src="images/svm_table_02.png" width="500" alt="SVM results">
+<img src="images/svm_table_03.png" width="500" alt="SVM results">
+<img src="images/svm_table_04.png" width="500" alt="SVM results">
 
 ### CNN
 
@@ -175,6 +184,13 @@ Additional observations:
 | 1 (triangles) | FP = 0, FN = 1 |
 | 2 (diamonds) | Accuracy 99.74%, Precision 100.00%, Recall 99.50%, F1 99.75% (FP = 0, FN = 1) |
 | 3 (all other signs) | Metrics remain essentially unchanged; errors are limited to isolated samples |
+
+#### Example of the confusion matrix and metrics for the `triangle` subset:
+<img src="images/cnn_metrics.png" width="500" alt="CNN metrics">
+
+
+#### Example of the table of the identification results:
+<img src="images/cnn_table_01.png" width="500" alt="CNN results">
 
 ### SVM vs. CNN 
 
@@ -208,8 +224,8 @@ Hu moments describe only the **outer contour**, which explains the SVM behavior:
 
 ### Requirements
 
-- Python 3.11+ (with Tkinter, included in most Python distributions)
-- `numpy`, `scipy`, `opencv-python`, `pillow`, `tensorflow`
+- Python 3.11+
+- numpy, scipy, opencv-python, pillow, tensorflow
 
 ```bash
 git clone <your-repository-url>
@@ -227,10 +243,10 @@ Download GTSRB and arrange the training folder like this:
 
 ```
 training_data/
-├── 00014/                    # target class (STOP signs)
-└── 00012/                    # negative class 
-└── triangle/                 # negative class
-└── training set no stop/     # negative class
+├── 00012/                    # negative class  
+└── 00014/                    # target class (STOP signs)
+└── triangle/                 # negative class (needs to be hand-picked)
+└── training set no stop/     # negative class (needs to be hand-picked)
 ```
 
 ### Run
