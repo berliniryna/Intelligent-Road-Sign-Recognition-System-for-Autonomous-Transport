@@ -272,10 +272,9 @@ python Intelligent traffic sign recognition system.py
 ├── Intelligent traffic sign recognition system.py                 
 ├── README.md
 ├── requirements.txt
-├── images
-└── data 
-│   ├──trainning_data
-│   │   ├──...    
+├── images 
+│   ├──GUI.png
+│   ├──...
 ```
 
 Main components inside `Intelligent traffic sign recognition system.py`:
